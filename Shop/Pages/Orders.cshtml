@@ -1,0 +1,69 @@
+﻿@page
+@model ShopUI.Pages.OrdersModel
+@using ShopUI.Models
+@{
+}
+
+<div>
+    <form asp-page-handler="Sort">
+        <label>Sort: </label>
+        <select asp-for="_sortTerm" onchange="this.form.submit()">
+            <option value="">None</option>
+            <option value="_paid">Paid</option>
+            <option value="_notPaid">Not Paid</option>
+        </select>
+    </form>
+</div>
+<div>
+    @foreach (Order order in Model._allOrders)
+    {
+        <div class="bg-secondary">
+            <h4 class="text-center">@order._id</h4>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th> Image </th>
+                    <th> Id </th>
+                    <th> Name </th>
+                    <th> Description </th>
+                    <th> Price </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (Product product in order._product)
+                {
+                    <tr>
+                        <td class="w-25">
+                            <img src="@product._image" class="img-fluid pr-5" />
+                        </td>
+                        <td>@product._id</td>
+                        <td>@product._title</td>
+                        <td>@product._description</td>
+                        <td>@product._price</td>
+
+                    </tr>
+                }
+            </tbody>
+
+
+        </table>
+        @if (!order._isPaid)
+        {
+            <form asp-page-handler="Pay">
+                <input value="@order._id" asp-for="_orderId" type="hidden" />
+                <button class="w-100 btn btn-outline-danger" type="submit">Pay for order</button>
+            </form>
+        }
+        else
+        {
+            <h4 class=" text-center alert alert-success">This order is paid for</h4>
+        }
+    }
+
+
+
+
+</div>

@@ -1,0 +1,51 @@
+﻿@page
+@model ShopUI.Pages.CartModel
+@using ShopUI.Models
+@{
+}
+
+<div class="d-flex">
+
+
+    <!--Produkter-->
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (Product product in Model._customer._shoppingCart._products)
+                {
+                    <tr>
+                        <td class="w-25">
+                            <img src="@product._image" class="img-fluid pr-5" />
+                        </td>
+                        <td>@product._id</td>
+                        <td>@product._title</td>
+                        <td>@product._description</td>
+                        <td>@product._price</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+        <form asp-page-handler="Order">
+            <button class="w-100 btn btn-outline-primary" type="submit">Order</button>
+        </form>
+    </div>
+
+    <!--Kundinformation-->
+    <div>
+        <h3 class="text-left text-nowrap p-2">Kund: @Model._customer._name</h3>
+    </div>
+
+</div>

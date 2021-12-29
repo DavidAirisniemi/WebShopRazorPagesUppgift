@@ -1,0 +1,89 @@
+﻿@page
+@model IndexModel
+@using ShopUI.Models
+@{
+    ViewData["Title"] = "Home page";
+}
+@if (Model._products == null)
+{
+    Model.OnGet();
+}
+<div class="text-center">
+    <h1 class="display-4">Buy a planet now!</h1>
+</div>
+
+
+<div class="d-flex justify-content-between">
+    <div class="float-left">
+        <form asp-page-handler="Sort">
+            <label>Sort: </label>
+            <select asp-for="_sortTerm" onchange="this.form.submit()">
+                <option value="">None</option>
+                <option value="_hPrice">Highest Price</option>
+                <option value="_lPrice">Lowest Price</option>
+                <option value="_AZProducts">Alphabetical A-Z</option>
+                <option value="_ZAProducts">Alphabetical Z-A</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="w-50">
+        <form asp-page-handler="Search">
+            <input class="w-100" type="text" asp-for="_searchTerm" placeholder="Search for planet... "/>
+        </form>
+    </div>
+
+    <div class="float-right">
+        <form asp-page-handler="Login">
+            <label class="h5">
+                Login
+            </label>
+            <select asp-for="_loginId" onchange="this.form.submit()">
+                <option value="0">Login</option>
+                @foreach (Customer customer in Model._customerDataAccess.GetAll())
+                {
+                    <option value="@customer._id">
+                        @customer._name
+                    </option>
+                }
+            </select>
+        </form>
+    </div>
+</div>
+
+
+<div class="container d-flex justify-content-around flex-wrap">
+    @foreach (var product in Model._products)
+    {
+    <div class="card w-25 m-3">
+        <h2 class="card-title text-center">@product._title</h2>
+        <div class="card-body">
+            <img src="@product._image" class="card-img" alt="Image of @product._title"/>
+            <p class="card-text h5">@product._description.Substring(0, 150)...</p>
+        </div>
+
+        <div class="card-footer">
+            <form asp-page-handler="AddToCart" class="float-left">
+                <input type="hidden" asp-for="_productId" value="@product._id" />
+                <button class="btn btn-outline-primary" type="submit">
+                    Add to cart
+                </button>
+            </form>
+            <h3 class=" card-text float-right">@product._price</h3>
+        </div>
+        
+
+
+
+    </div>
+
+
+
+    }
+</div>
+
+
+
+<form asp-page-handler="Serialize" autocomplete="off">
+    <button type="submit">Serialize Mock</button>
+</form>
