@@ -2,8 +2,10 @@
 @model ShopUI.Pages.OrdersModel
 @using ShopUI.Models
 @{
+    double price = 0;
 }
 
+<!--Sort-->
 <div>
     <form asp-page-handler="Sort">
         <label>Sort: </label>
@@ -14,9 +16,14 @@
         </select>
     </form>
 </div>
+
+<!--Orders-->
 <div>
+    <!--Write all orders-->
     @foreach (Order order in Model._allOrders)
     {
+        <!--Reset price to 0-->
+        price = 0;
         <div class="bg-secondary">
             <h4 class="text-center">@order._id</h4>
         </div>
@@ -24,7 +31,6 @@
             <thead>
                 <tr>
                     <th> Image </th>
-                    <th> Id </th>
                     <th> Name </th>
                     <th> Description </th>
                     <th> Price </th>
@@ -32,26 +38,31 @@
             </thead>
 
             <tbody>
-
+                <!--Print all products in the order-->
                 @foreach (Product product in order._product)
                 {
+                    <!--Foreach product: add their price to the total price-->
+                    price += product._price;
                     <tr>
                         <td class="w-25">
                             <img src="@product._image" class="img-fluid pr-5" />
                         </td>
-                        <td>@product._id</td>
-                        <td>@product._title</td>
-                        <td>@product._description</td>
-                        <td>@product._price</td>
-
+                        <td class="h4">@product._title</td>
+                        <td>@product._description.Substring(0, 250)...</td>
+                        <!--mdkr = Miljarder kronor-->
+                        <td class="h4">@product._price mdkr</td>
                     </tr>
                 }
             </tbody>
 
 
         </table>
+        <!--If the order is not paid for: create a button to pay for it-->
         @if (!order._isPaid)
         {
+            <div>
+                <h4 class="text-right text-weight-bold">Total price: @price mdkr</h4>
+            </div>
             <form asp-page-handler="Pay">
                 <input value="@order._id" asp-for="_orderId" type="hidden" />
                 <button class="w-100 btn btn-outline-danger" type="submit">Pay for order</button>
@@ -59,6 +70,7 @@
         }
         else
         {
+            <!--Else: Create an alert to tell the customer that the order is paid for-->
             <h4 class=" text-center alert alert-success">This order is paid for</h4>
         }
     }

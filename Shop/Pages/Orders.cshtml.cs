@@ -29,10 +29,12 @@ namespace ShopUI.Pages
 
         public IActionResult OnGet()
         {
+            //Check cookie if customer is logged in
             if (HttpContext.Session.GetInt32("LoginId") != 0 && HttpContext.Session.GetInt32("LoginId") != null)
             {
+                //Get customer from cookie
                 _customer = _customerDataAccess.GetById((int)HttpContext.Session.GetInt32("LoginId"));
-
+                //Add all orders from customer into _allOrders
                 _allOrders.AddRange(_customer._orders);
 
                 return Page();
@@ -47,10 +49,12 @@ namespace ShopUI.Pages
             OnGet();
             foreach (Order order in _customer._orders)
             {
+                //Find correct order to pay for
                 if (order._id == _orderId)
                 {
                     order._isPaid = true;
 
+                    //Seralize to JSON file to save changes
                     List<Customer> updateCList = _customerDataAccess.GetAll();
                     updateCList[_customer._id - 1] = _customer;
                     _customerDataAccess.SerializeItems(updateCList);
@@ -69,6 +73,7 @@ namespace ShopUI.Pages
             switch (_sortTerm)
             {
                 case "_paid":
+                    //Sort by isPaid
                     _allOrders = _allOrders.OrderByDescending(o => o._isPaid).ToList();
                     break;
 

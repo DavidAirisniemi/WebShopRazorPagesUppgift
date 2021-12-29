@@ -14,7 +14,9 @@
 
 
 <div class="d-flex justify-content-between">
+    <!--Sort-->
     <div class="float-left">
+        <!--Form to sort all products-->
         <form asp-page-handler="Sort">
             <label>Sort: </label>
             <select asp-for="_sortTerm" onchange="this.form.submit()">
@@ -27,19 +29,23 @@
         </form>
     </div>
 
+    <!--Search-->
     <div class="w-50">
         <form asp-page-handler="Search">
-            <input class="w-100" type="text" asp-for="_searchTerm" placeholder="Search for planet... "/>
+            <input class="w-100" type="text" asp-for="_searchTerm" placeholder="Search for planet... " />
         </form>
     </div>
 
+    <!--Login-->
     <div class="float-right">
+        <!--Form to login-->
         <form asp-page-handler="Login">
             <label class="h5">
                 Login
             </label>
             <select asp-for="_loginId" onchange="this.form.submit()">
                 <option value="0">Login</option>
+                <!--Foreach customer in JSON file: create a row for them in the dropdown list-->
                 @foreach (Customer customer in Model._customerDataAccess.GetAll())
                 {
                     <option value="@customer._id">
@@ -51,25 +57,29 @@
     </div>
 </div>
 
-
+<!--Products-->
 <div class="container d-flex justify-content-around flex-wrap">
     @foreach (var product in Model._products)
     {
     <div class="card w-25 m-3">
         <h2 class="card-title text-center">@product._title</h2>
         <div class="card-body">
-            <img src="@product._image" class="card-img" alt="Image of @product._title"/>
+            <!--Get the image of the product-->
+            <img src="@product._image "@*<-- This gets replaced with the link in the JSON file*@ class="card-img" alt="Image of @product._title @*<-- Replaces image if image link is not found*@"/>
+            <!--Create the description with only 150 letters to not fill the entire screen with description-->
             <p class="card-text h5">@product._description.Substring(0, 150)...</p>
         </div>
 
         <div class="card-footer">
             <form asp-page-handler="AddToCart" class="float-left">
+                <!--Hidden input with the products id to sneak some hidden data to the codebehind-->
                 <input type="hidden" asp-for="_productId" value="@product._id" />
                 <button class="btn btn-outline-primary" type="submit">
                     Add to cart
                 </button>
             </form>
-            <h3 class=" card-text float-right">@product._price</h3>
+            <!--mdkr = Miljarder kronor-->
+            <h3 class=" card-text float-right">@product._price mdkr</h3>
         </div>
         
 
@@ -83,7 +93,7 @@
 </div>
 
 
-
+<!--Serialize button to press after changes to products or customers or to clear all orders and cart items-->
 <form asp-page-handler="Serialize" autocomplete="off">
     <button type="submit">Serialize Mock</button>
 </form>

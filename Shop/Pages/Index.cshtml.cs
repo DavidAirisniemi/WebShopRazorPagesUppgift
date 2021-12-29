@@ -24,9 +24,11 @@ namespace ShopUI.Pages
 
         public void OnGet()
         {
+            //Get all products from JSON
             _products = _productDataAccess.GetAll();
             if (_products == null)
             {
+                //If there are no products: create a new list to avoid a null exception
                 _products = new List<Product>();
             }
         }
@@ -35,6 +37,7 @@ namespace ShopUI.Pages
 
         public IActionResult OnPostLogin()
         {
+            //Set cookie with the logged in users id
             HttpContext.Session.SetInt32("LoginId", _loginId);
 
             return Page();
@@ -44,11 +47,15 @@ namespace ShopUI.Pages
 
         public IActionResult OnPostAddToCart()
         {
+            //Check cookie if customer is logged in
             if (HttpContext.Session.GetInt32("LoginId") != 0 && HttpContext.Session.GetInt32("LoginId") != null)
             {
+                //Get customer from cookie
                 Customer customer = _customerDataAccess.GetById((int)HttpContext.Session.GetInt32("LoginId"));
-
+                //Add item to customers cart
                 customer._shoppingCart.AddItemToCart(_productDataAccess.GetById(_productId));
+
+                //Seralize to JSON file to save changes
                 List<Customer> updateCList = _customerDataAccess.GetAll();
                 updateCList[customer._id - 1] = customer;
                 _customerDataAccess.SerializeItems(updateCList);
@@ -63,6 +70,7 @@ namespace ShopUI.Pages
         {
             if (!string.IsNullOrEmpty(_searchTerm))
             {
+                //Search for all items in JSON where title contains the searched word
                 _products = _productDataAccess.GetAll().
                     Where(p => p._title.ToLower().
                     Contains(_searchTerm.ToLower())).ToList();
@@ -75,8 +83,10 @@ namespace ShopUI.Pages
         public string _sortTerm { get; set; }
         public IActionResult OnPostSort()
         {
+            //Check so that the sort term is not set to the default value
             if (!string.IsNullOrEmpty(_sortTerm))
             {
+                //Get the _products list
                 OnGet();
                 switch (_sortTerm)
                 {
