@@ -35,11 +35,11 @@ namespace ShopUI.DataAccess
 
         public Customer GetById(int id)
         {
-            foreach (Customer product in GetAll())
+            foreach (Customer customer in GetAll())
             {
-                if (product._id == id)
+                if (customer._id == id)
                 {
-                    return product;
+                    return customer;
                 }
             }
             return null;
