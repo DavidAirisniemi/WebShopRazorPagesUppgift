@@ -16,20 +16,9 @@ namespace ShopUI.Models
             _orders = orders;
             if (_shoppingCart == null)
             {
-                this._shoppingCart = new ShoppingCart(id);
+                _shoppingCart = new ShoppingCart(id);
             }
             
-        }
-
-        public void ClearCart()
-        {
-            this._shoppingCart._products.Clear();
-        }
-
-        public void AddOrder()
-        {
-            _orders.Add(new Order(_orders.Count, _shoppingCart._products));
-            ClearCart();
         }
     }
 }

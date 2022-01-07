@@ -18,8 +18,8 @@ namespace ShopUI.Pages
 
         public IndexModel(IDataAccess<Product> productDataAccess, IDataAccess<Customer> customerDataAccess)
         {
-            this._productDataAccess = productDataAccess;
-            this._customerDataAccess = customerDataAccess;
+            _productDataAccess = productDataAccess;
+            _customerDataAccess = customerDataAccess;
         }
 
         public void OnGet()

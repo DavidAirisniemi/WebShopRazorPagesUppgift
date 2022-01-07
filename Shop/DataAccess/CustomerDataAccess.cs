@@ -14,7 +14,7 @@ namespace ShopUI.DataAccess
 
         public CustomerDataAccess(JsonDataSource data)
         {
-            this._dataSource = data;
+            _dataSource = data;
         }
 
         public List<Customer> GetAll()

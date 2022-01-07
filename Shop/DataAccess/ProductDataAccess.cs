@@ -13,7 +13,7 @@ namespace ShopUI.DataAccess
 
         public ProductDataAccess(JsonDataSource data)
         {
-            this._dataSource = data;
+            _dataSource = data;
         }
 
         public List<Product> GetAll()

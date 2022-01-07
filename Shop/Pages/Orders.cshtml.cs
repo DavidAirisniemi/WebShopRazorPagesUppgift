@@ -18,8 +18,8 @@ namespace ShopUI.Pages
 
         public OrdersModel(IDataAccess<Product> productDataAccess, IDataAccess<Customer> customerDataAccess)
         {
-            this._productDataAccess = productDataAccess;
-            this._customerDataAccess = customerDataAccess;
+            _productDataAccess = productDataAccess;
+            _customerDataAccess = customerDataAccess;
         }
 
         public List<Order> _allOrders { get; set; } = new List<Order>();

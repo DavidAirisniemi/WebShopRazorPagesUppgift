@@ -17,7 +17,7 @@ namespace ShopUI.Pages
 
         public CartModel(IDataAccess<Customer> customerDataAccess)
         {
-            this._customerDataAccess = customerDataAccess;
+            _customerDataAccess = customerDataAccess;
         }
 
         public Customer _customer { get; set; }

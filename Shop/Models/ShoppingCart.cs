@@ -12,7 +12,7 @@ namespace ShopUI.Models
             _id = id;
             if (_products == null)
             {
-                this._products = new List<Product>();
+                _products = new List<Product>();
             }
             
         }
