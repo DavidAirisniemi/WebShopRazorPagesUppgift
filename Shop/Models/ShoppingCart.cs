@@ -16,9 +16,9 @@ namespace ShopUI.Models
             }
             
         }
-        public void AddItemToCart(Product item)
+        public void AddProductToCart(Product product)
         {
-            _products.Add(item);
+            _products.Add(product);
         }
     }
 }

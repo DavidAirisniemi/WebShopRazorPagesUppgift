@@ -53,12 +53,12 @@ namespace ShopUI.Pages
                 //Get customer from cookie
                 Customer customer = _customerDataAccess.GetById((int)HttpContext.Session.GetInt32("LoginId"));
                 //Add item to customers cart
-                customer._shoppingCart.AddItemToCart(_productDataAccess.GetById(_productId));
+                customer._shoppingCart.AddProductToCart(_productDataAccess.GetById(_productId));
 
                 //Seralize to JSON file to save changes
                 List<Customer> updateCList = _customerDataAccess.GetAll();
                 updateCList[customer._id - 1] = customer;
-                _customerDataAccess.SerializeItems(updateCList);
+                _customerDataAccess.Serialize(updateCList);
             }
 
             return Page();
@@ -123,7 +123,7 @@ namespace ShopUI.Pages
             _products.Add(new Product(6, "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Saturn_from_Cassini_Orbiter_%282004-10-06%29.jpg/800px-Saturn_from_Cassini_Orbiter_%282004-10-06%29.jpg", "Saturnus", "Saturnus (symbol: ♄) är den sjätte planeten från solen och den näst största i solsystemet. Den är en gasjätte, känd sedan förhistorisk tid. Galileo Galilei var den första att observera den genom ett teleskop år 1610. Han såg planeten när ringarnas läge fick planeten att se ut som tre planeter i en klump, vilket gjorde dåtidens forskare mycket förbryllade. Saturnus har 95 gånger så stor massa som jorden och har nio gånger så stor diameter.[10] Planeten är namngiven efter den romerska guden Saturnus. t", 64));
             _products.Add(new Product(7, "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/1280px-Uranus2.jpg", "Uranus", "Uranus (symbol: ⛢ eller ♅) är den sjunde planeten från solen. Uranus är en av solsystemets fyra jätteplaneter - Jupiter, Saturnus, Uranus och Neptunus - och är av ungefär samma storlek som Neptunus. Planetens diameter är ungefär 50 000 km (ca 4 gånger så stor som jordens) och massan cirka 14,5 jordmassor. Planetens rotationsaxel har en lutning på hela 98 grader, vilket innebär att planeten snarast ”rullar” genom rymden på sin bana runt solen. Det tar 84 år för Uranus att fullborda ett varv runt solen.[2] På grund av Uranus lutning ger det mycket märkliga dygn och år. Under ungefär halva banan får nordpolen hela tiden solljus och det är sommar norr om ekvatorn. Sommaren följs av en 42 år lång vinter med norra halvklotet ständigt i natt eftersom det är vänt bort från solen. ", 52));
             _products.Add(new Product(8, "https://upload.wikimedia.org/wikipedia/commons/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg", "Neptunus", "Neptunus (symbol: ♆) är den åttonde planeten från solen. Neptunus är en så kallad gasjätte, och har fått sitt namn efter havsguden Neptunus i romersk mytologi. Den 24 augusti 2006, då Internationella astronomiska unionen beslutade att Pluto inte längre var en planet, blev Neptunus den yttersta planeten i solsystemet. Neptunus var dock den yttersta planeten i solsystemet även mellan åren 1979 och 1999, eftersom Pluto då låg närmare solen än Neptunus. ", 57));
-            _productDataAccess.SerializeItems(_products);
+            _productDataAccess.Serialize(_products);
 
 
 
@@ -133,7 +133,7 @@ namespace ShopUI.Pages
             customer.Add(new Customer(3, "Viktor Byström", new List<Order>()));
             customer.Add(new Customer(4, "Gärdar Ahlander", new List<Order>()));
             customer.Add(new Customer(5, "Julia Tegnér", new List<Order>()));
-            _customerDataAccess.SerializeItems(customer);
+            _customerDataAccess.Serialize(customer);
         }
     }
 }

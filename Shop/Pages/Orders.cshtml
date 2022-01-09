@@ -39,7 +39,7 @@
 
             <tbody>
                 <!--Print all products in the order-->
-                @foreach (Product product in order._product)
+                @foreach (Product product in order._products)
                 {
                     <!--Foreach product: add their price to the total price-->
                     price += product._price;

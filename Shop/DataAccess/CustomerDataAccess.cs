@@ -27,7 +27,7 @@ namespace ShopUI.DataAccess
             return customer;
         }
 
-        public void SerializeItems(List<Customer> customer)
+        public void Serialize(List<Customer> customer)
         {
             string json = JsonConvert.SerializeObject(customer, Formatting.Indented);
             File.WriteAllText(@"C:\Users\David!\source\repos\WebShopRazorPagesUppgift\Shop\wwwroot\data\Customer.json", json);

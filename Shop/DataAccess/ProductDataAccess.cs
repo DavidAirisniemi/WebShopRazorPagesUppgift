@@ -22,7 +22,7 @@ namespace ShopUI.DataAccess
             return products;
         }
 
-        public void SerializeItems(List<Product> products)
+        public void Serialize(List<Product> products)
         {
             string json = JsonConvert.SerializeObject(products, Formatting.Indented);
             File.WriteAllText(@"C:\Users\David!\source\repos\WebShopRazorPagesUppgift\Shop\wwwroot\data\Product.json", json);

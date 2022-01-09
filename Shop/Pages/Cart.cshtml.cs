@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -58,7 +55,7 @@ namespace ShopUI.Pages
             //Seralize to JSON file to save changes
             List<Customer> updateCList = _customerDataAccess.GetAll();
             updateCList[_customer._id - 1] = _customer;
-            _customerDataAccess.SerializeItems(updateCList);
+            _customerDataAccess.Serialize(updateCList);
 
             //Return to index
             return RedirectToPage("/Index");

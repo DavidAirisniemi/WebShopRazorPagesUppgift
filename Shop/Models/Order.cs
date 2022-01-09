@@ -6,12 +6,12 @@ namespace ShopUI.Models
     {
         public int _id { get; set; }
         public bool _isPaid { get; set; }
-        public List<Product> _product { get; set; }
+        public List<Product> _products { get; set; }
 
-        public Order(int id, List<Product> product)
+        public Order(int id, List<Product> products)
         {
             _id = id;
-            _product = product;
+            _products = products;
             _isPaid = false;
         }
     }   

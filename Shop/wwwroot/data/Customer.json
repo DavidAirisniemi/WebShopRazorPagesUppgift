@@ -6,20 +6,20 @@
       {
         "_id": 0,
         "_isPaid": true,
-        "_product": [
-          {
-            "_id": 2,
-            "_image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
-            "_title": "Venus",
-            "_description": "Venus (symbol: ♀) är den andra planeten i solsystemet från solen räknat och den är nästan lika stor som jorden. Då Venus rör sig runt sin egen axel i motsatt riktning mot rörelsen runt solen så kan man säga att den roterar baklänges, vilket endast Venus och Uranus gör. Venus är den enda planeten i hela solsystemet vars dygn är längre än dess år eftersom Venus snurrar ett varv runt solen på 225 jorddygn men behöver hela 243 jorddygn för att rotera ett enda varv runt sin egen axel",
-            "_price": 53
-          },
+        "_products": [
           {
             "_id": 1,
             "_image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Mercury_Globe-MESSENGER_mosaic_centered_at_0degN-0degE.jpg",
             "_title": "Merkurius",
             "_description": "Merkurius (symbol: ☿) är den innersta och minsta planeten i solsystemet, med en omloppstid runt solen av ungefär 88 dygn. På grund av sin närhet till solen är den svår att observera från jorden och kan bara ses i gryningen eller skymningen för blotta ögat eller med en fältkikare. Merkurius har ändå en observationshistoria på åtminstone 3 400 år, eftersom den finns dokumenterad i MUL.APIN, det babyloniska verk som behandlar babylonisk astronomi och astrologi.",
             "_price": 25
+          },
+          {
+            "_id": 2,
+            "_image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
+            "_title": "Venus",
+            "_description": "Venus (symbol: ♀) är den andra planeten i solsystemet från solen räknat och den är nästan lika stor som jorden. Då Venus rör sig runt sin egen axel i motsatt riktning mot rörelsen runt solen så kan man säga att den roterar baklänges, vilket endast Venus och Uranus gör. Venus är den enda planeten i hela solsystemet vars dygn är längre än dess år eftersom Venus snurrar ett varv runt solen på 225 jorddygn men behöver hela 243 jorddygn för att rotera ett enda varv runt sin egen axel",
+            "_price": 53
           },
           {
             "_id": 3,
@@ -64,6 +64,39 @@
             "_price": 57
           }
         ]
+      },
+      {
+        "_id": 1,
+        "_isPaid": false,
+        "_products": [
+          {
+            "_id": 5,
+            "_image": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg",
+            "_title": "Jupiter",
+            "_description": "Jupiter (symbol: ♃) är den femte planeten från solen och är med stor marginal solsystemets största planet. Dess massa är 2,5 gånger så stor som alla de andra planeternas sammanlagda massa. Planeten är en så kallad gasjätte och man är inte säker på om planeten ens har en fast kärna. Planeten har fått sitt namn efter den största guden inom romerska mytologin, Jupiter. Fastän namnet är romerskt har planeten varit känd, under andra namn, sedan urminnes tider (till exempel Δίας/Dias på grekiska). ",
+            "_price": 21
+          },
+          {
+            "_id": 1,
+            "_image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Mercury_Globe-MESSENGER_mosaic_centered_at_0degN-0degE.jpg",
+            "_title": "Merkurius",
+            "_description": "Merkurius (symbol: ☿) är den innersta och minsta planeten i solsystemet, med en omloppstid runt solen av ungefär 88 dygn. På grund av sin närhet till solen är den svår att observera från jorden och kan bara ses i gryningen eller skymningen för blotta ögat eller med en fältkikare. Merkurius har ändå en observationshistoria på åtminstone 3 400 år, eftersom den finns dokumenterad i MUL.APIN, det babyloniska verk som behandlar babylonisk astronomi och astrologi.",
+            "_price": 25
+          }
+        ]
+      },
+      {
+        "_id": 2,
+        "_isPaid": true,
+        "_products": [
+          {
+            "_id": 1,
+            "_image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Mercury_Globe-MESSENGER_mosaic_centered_at_0degN-0degE.jpg",
+            "_title": "Merkurius",
+            "_description": "Merkurius (symbol: ☿) är den innersta och minsta planeten i solsystemet, med en omloppstid runt solen av ungefär 88 dygn. På grund av sin närhet till solen är den svår att observera från jorden och kan bara ses i gryningen eller skymningen för blotta ögat eller med en fältkikare. Merkurius har ändå en observationshistoria på åtminstone 3 400 år, eftersom den finns dokumenterad i MUL.APIN, det babyloniska verk som behandlar babylonisk astronomi och astrologi.",
+            "_price": 25
+          }
+        ]
       }
     ],
     "_shoppingCart": {
@@ -74,7 +107,41 @@
   {
     "_id": 2,
     "_name": "Per Kallhage",
-    "_orders": [],
+    "_orders": [
+      {
+        "_id": 0,
+        "_isPaid": true,
+        "_products": [
+          {
+            "_id": 1,
+            "_image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Mercury_Globe-MESSENGER_mosaic_centered_at_0degN-0degE.jpg",
+            "_title": "Merkurius",
+            "_description": "Merkurius (symbol: ☿) är den innersta och minsta planeten i solsystemet, med en omloppstid runt solen av ungefär 88 dygn. På grund av sin närhet till solen är den svår att observera från jorden och kan bara ses i gryningen eller skymningen för blotta ögat eller med en fältkikare. Merkurius har ändå en observationshistoria på åtminstone 3 400 år, eftersom den finns dokumenterad i MUL.APIN, det babyloniska verk som behandlar babylonisk astronomi och astrologi.",
+            "_price": 25
+          },
+          {
+            "_id": 2,
+            "_image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
+            "_title": "Venus",
+            "_description": "Venus (symbol: ♀) är den andra planeten i solsystemet från solen räknat och den är nästan lika stor som jorden. Då Venus rör sig runt sin egen axel i motsatt riktning mot rörelsen runt solen så kan man säga att den roterar baklänges, vilket endast Venus och Uranus gör. Venus är den enda planeten i hela solsystemet vars dygn är längre än dess år eftersom Venus snurrar ett varv runt solen på 225 jorddygn men behöver hela 243 jorddygn för att rotera ett enda varv runt sin egen axel",
+            "_price": 53
+          }
+        ]
+      },
+      {
+        "_id": 1,
+        "_isPaid": false,
+        "_products": [
+          {
+            "_id": 2,
+            "_image": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg",
+            "_title": "Venus",
+            "_description": "Venus (symbol: ♀) är den andra planeten i solsystemet från solen räknat och den är nästan lika stor som jorden. Då Venus rör sig runt sin egen axel i motsatt riktning mot rörelsen runt solen så kan man säga att den roterar baklänges, vilket endast Venus och Uranus gör. Venus är den enda planeten i hela solsystemet vars dygn är längre än dess år eftersom Venus snurrar ett varv runt solen på 225 jorddygn men behöver hela 243 jorddygn för att rotera ett enda varv runt sin egen axel",
+            "_price": 53
+          }
+        ]
+      }
+    ],
     "_shoppingCart": {
       "_id": 2,
       "_products": []
